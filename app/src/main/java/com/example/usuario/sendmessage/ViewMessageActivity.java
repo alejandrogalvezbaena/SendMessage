@@ -31,15 +31,18 @@ public class ViewMessageActivity extends AppCompatActivity {
         txvViewMessage=(TextView)findViewById(R.id.txvViewMessage);
         txvViewUser=(TextView)findViewById(R.id.txvViewUser);
 
+        /*
+        RECOGER LAS VARIABLES DEL ACTIVITY SendMessage
         //1. Recoger el Intent que se ha enviado
-        //Intent intent=getIntent();
+        Intent intent=getIntent();
         //2.Recoger el mensaje de Bundle
-        //Bundle bundle=intent.getExtras();
+        Bundle bundle=intent.getExtras();
         //3.Mostrar mensaje
-        //txvViewMessage.setText(bundle.getString("message"));
-        //txvViewUser.setText(String.format(getResources().getString(R.string.txvViewUser),bundle.getString("user")));
+        txvViewMessage.setText(bundle.getString("message"));
+        txvViewUser.setText(String.format(getResources().getString(R.string.txvViewUser),bundle.getString("user")));
         //Para refactorizar podriamos unir los tres pasos:
-        //txvViewMessage.setText(getIntent().getExtras().getString("message"));
+        txvViewMessage.setText(getIntent().getExtras().getString("message"));
+        */
 
         //Metodo Parcelable
         Message miMensaje=(Message)getIntent().getExtras().getParcelable("message");

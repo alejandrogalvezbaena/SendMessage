@@ -42,19 +42,31 @@ public class SendMessageActivity extends AppCompatActivity {
         //1.Registrar un Listener o Escuchador OnClickListener
         btnOK.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                /*
+                RECOGER LOS DATOS DE LOS COMPONENTES Y AÑADIRLOS AL BUNDLE
+                //1. Crear objeto Bundle
                 Bundle bundle=new Bundle();
-                //Recoger las variables al pulsar el botón
-                miMensaje = new com.example.usuario.sendmessage.pojo.Message(edtMessage.getText().toString(),edtUser.getText().toString());
-                //Método Parcelable para pasar un objeto a otro Activity
-                bundle.putParcelable("message", miMensaje);
-                //bundle.putString("message", edtMessage.getText().toString() );
-                //bundle.putString("user", edtUser.getText().toString());
+                //2. Añadir al Bundle las variables
+                bundle.putString("message", edtMessage.getText().toString() );
+                bundle.putString("user", edtUser.getText().toString());
                 //3. Crear un objeto Intent
                 Intent intent =new Intent(SendMessageActivity.this, ViewMessageActivity.class);
                 //3.1. Añadir el bundler
                 intent.putExtras(bundle);
+                */
 
-                //4. Iniciar la Activity ViewMessage
+                //METODO PARA RECOGER LOS DATOS Y AÑADIRLOS AL BUNDLE MEDIANTE UN OBJETO (por Parcelable)
+                //Recoger las variables al pulsar el botón
+                miMensaje = new com.example.usuario.sendmessage.pojo.Message(edtMessage.getText().toString(),edtUser.getText().toString());
+                Bundle bundle=new Bundle();
+                //Método Parcelable para pasar un objeto a otro Activity
+                bundle.putParcelable("message", miMensaje);
+                //Crear un objeto Intent
+                Intent intent =new Intent(SendMessageActivity.this, ViewMessageActivity.class);
+                //Añadir el bundler
+                intent.putExtras(bundle);
+
+                //Iniciar la Activity ViewMessage
                 startActivity(intent);
             }
         });
